@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Viewer</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="/resources/css/style.css" />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/resources/css/slider.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/resources/images/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar w-100 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex justify-content-center">
+          <div
+            class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100"
+          >
+            <a class="navbar-brand brand-logo" href="/viewer"
+              ><img src="/resources/images/logo.png" alt="logo"
+            /></a>
+          </div>
+        </div>
+        <div
+          class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+        >
+          <span class="r-sentence"
+            ><span class="point">Q</span> uantitative
+            <span class="point">A</span>nalysis
+            <span class="point">S</span>ystem of
+            <span class="point">I</span>mages</span
+          >
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial [side bar] -->
+        <nav class="sidebar">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/main">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <span class="menu-title">Image Modeling</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/report">
+                <i class="fa-solid fa-table"></i>
+                <span class="menu-title">Report</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/setting">
+                <i class="fa-solid fa-gear"></i>
+                <span class="menu-title">Train Settings</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial [main] -->
+        <div class="main-panel">
+          <div class="content-wrapper inner-card"></div>
+          <!-- content-wrapper ends -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <!-- base:js -->
+    <script
+      type="text/javascript"
+      src="/node_modules/jquery/dist/jquery.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <!-- endinject -->
+    <script src="/data/test_report.js"></script>
+    <script src="/script/report_sc.js"></script>
+    <!-- End custom js for this page-->
+  </body>
+</html>

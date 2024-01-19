@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Viewer</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="/resources/css/style.css" />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/resources/css/slider.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/resources/images/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar w-100 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex justify-content-center">
+          <div
+            class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100"
+          >
+            <a class="navbar-brand brand-logo" href="/viewer"
+              ><img src="/resources/images/logo.png" alt="logo"
+            /></a>
+          </div>
+        </div>
+        <div
+          class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+        >
+          <span class="r-sentence"
+            ><span class="point">Q</span> uantitative
+            <span class="point">A</span>nalysis
+            <span class="point">S</span>ystem of
+            <span class="point">I</span>mages</span
+          >
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial [side bar] -->
+        <nav class="sidebar">
+          <li class="nav-item">
+            <a class="nav-link" href="/main">
+              <i class="fa-regular fa-images"></i>
+              <span class="menu-title">Image Viewer</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/measurement">
+              <i class="fa-solid fa-table"></i>
+              <span class="menu-title">Measurement</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/report">
+              <i class="fa-solid fa-table"></i>
+              <span class="menu-title">Floc Report</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/speed">
+              <i class="fa-regular fa-images"></i>
+              <span class="menu-title">Speed Analysis</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/speed/result">
+              <i class="fa-solid fa-gear"></i>
+              <span class="menu-title">Speed Analysis Result</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/speed/report">
+              <i class="fa-solid fa-gear"></i>
+              <span class="menu-title">Speed Analysis Report</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/setting">
+              <i class="fa-solid fa-gear"></i>
+              <span class="menu-title">Train Settings</span>
+            </a>
+          </li>
+        </nav>
+        <!-- partial [main] -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="column w-100 grid-margin stretch-card flex-column">
+                <div
+                  class="x-100 inner-card text-card row"
+                  style="margin-bottom: 0"
+                >
+                  <label>Batch ID</label>
+                  <select
+                    id="projList"
+                    style="text-align: left !important; width: 250px"
+                  ></select>
+
+                  <div class="row">
+                    <div class="btn-group" style="padding: 0">
+                      <button id="btnCSV" type="button" class="btn">CSV</button>
+                      <button id="btnPDF" type="button" class="btn">PDF</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="inner-card row text-card">
+                  <label>침강 속도</label>
+                  <label id="speed_txt"></label>
+                </div>
+              </div>
+            </div>
+            <div class="h-80 w-100 grid-margin stretch-card flex-column">
+              <div class="row h-80 inner-card">
+                <table
+                  class="display"
+                  id="reportTable"
+                  style="width: 100%; text-align: center"
+                ></table>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <!-- base:js -->
+    <script
+      type="text/javascript"
+      src="/node_modules/jquery/dist/jquery.js"
+    ></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/1.13.4/js/dataTables.jqueryui.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/plug-ins/1.13.4/api/average().js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/rowgroup/1.3.1/js/dataTables.rowGroup.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.datatables.net/rowreorder/1.3.3/js/dataTables.rowReorder.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/1.13.4/css/dataTables.jqueryui.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/fixedheader/3.3.2/css/fixedHeader.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/rowreorder/1.3.3/css/rowReorder.dataTables.min.css"
+    />
+    <script src="/script/speedreport_sc.js"></script>
+    <!-- End custom js for this page-->
+  </body>
+</html>

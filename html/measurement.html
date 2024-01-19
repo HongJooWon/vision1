@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Vision</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="/resources/css/style.css" />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/resources/css/slider.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/resources/images/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar w-100 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex justify-content-center">
+          <div
+            class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100"
+          >
+            <a class="navbar-brand brand-logo" href="/main"
+              ><img src="/resources/images/logo.gif" alt="logo"
+            /></a>
+          </div>
+        </div>
+        <div
+          class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+        >
+          <img src="/resources/images/user.png" class="nav-user" />
+          <label class="user_name" id="userName"></label>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial [side bar] -->
+        <nav class="sidebar">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/main">
+                <i class="fa-regular fa-images"></i>
+                <span class="menu-title">Image Viewer</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/measurement">
+                <i class="fa-solid fa-table"></i>
+                <span class="menu-title">Measurement</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/report">
+                <i class="fa-solid fa-table"></i>
+                <span class="menu-title">Floc Report</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/speed">
+                <i class="fa-regular fa-images"></i>
+                <span class="menu-title">Speed Analysis</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/speed/result">
+                <i class="fa-solid fa-gear"></i>
+                <span class="menu-title">Speed Analysis Result</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/speed/report">
+                <i class="fa-solid fa-gear"></i>
+                <span class="menu-title">Speed Analysis Report</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/setting">
+                <i class="fa-solid fa-gear"></i>
+                <span class="menu-title">Train Settings</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial [main] -->
+        <div class="main-panel">
+          <div class="content-wrapper" style="overflow-y: auto">
+            <div class="x-100 inner-card text-card row">
+              <label>Project List</label>
+              <input
+                type="text"
+                id="searchWord"
+                placeholder="검색어를 입력하세요"
+              />
+              <label style="width: 130px; margin-left: 20px">Image Name</label>
+              <label id="targetName">cropped_T8A8739.JPG</label>
+              <label id="imgCnt">(1/3)</label>
+            </div>
+            <div class="row">
+              <div class="x-100 viewer-listArea">
+                <ul id="viewer_datalist"></ul>
+              </div>
+              <div class="self_slider">
+                <a id="gotoFirst"
+                  ><i class="fa-solid fa-backward-step fa-xl"></i
+                ></a>
+                <a id="gotoPre"><i class="fa-solid fa-caret-left fa-xl"></i></a>
+                <a id="gotoNext"
+                  ><i class="fa-solid fa-caret-right fa-xl"></i
+                ></a>
+                <a id="gotoLast"
+                  ><i class="fa-solid fa-forward-step fa-xl"></i
+                ></a>
+              </div>
+            </div>
+
+            <!-- <div class="row">
+              <div class="btn-group">
+                <button id="btnStart" type="button" class="btn">Start</button>
+                <button id="btnStop" type="button" class="btn">Stop</button>
+                <button id="btnCancel" type="button" class="btn">Cancel</button>
+              </div>
+            </div> -->
+            <div class="row justify-content-evenly">
+              <div class="w-40 stretch-card flex-column" style="height: 80vh">
+                <div class="row">
+                  <div id="detectedImg" class="swiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide mainImg">
+                        <img
+                          id="gt_img"
+                          src="../storage/output/bbox_plotted/gt/proj_20231226/cropped_F8A3351.JPG"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-20 stretch-card flex-column hist_area">
+                <label>GT</label>
+                <img
+                  id="gt_hist"
+                  src="../storage/output/hist/gt/proj_20231226/size_dist_cropped_F8A3351.png"
+                />
+                <label>Predicted</label>
+                <img
+                  id="pred_hist"
+                  src="../storage/output/hist/pred/proj_20231226/size_dist_cropped_F8A3351.png"
+                />
+              </div>
+              <div
+                class="w-40 grid-margin stretch-card flex-column"
+                style="height: 80vh"
+              >
+                <div class="row">
+                  <div id="image-slide" class="swiper" style="margin-top: 0">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide twice">
+                        <img
+                          id="pred_img"
+                          src="../storage/output/bbox_plotted/pred/proj_20231226/cropped_F8A3351.JPG"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <!-- base:js -->
+    <script
+      type="text/javascript"
+      src="/node_modules/jquery/dist/jquery.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"
+    ></script>
+    <script src="/script/measurement_sc.js"></script>
+    <!-- End custom js for this page-->
+  </body>
+</html>

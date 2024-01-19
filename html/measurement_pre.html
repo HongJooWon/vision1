@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Measurement</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="/resources/css/style.css" />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/resources/css/slider.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/resources/images/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex justify-content-center">
+          <div
+            class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100"
+          >
+            <a class="navbar-brand brand-logo" href="/viewer"
+              ><img src="/resources/images/logo.png" alt="logo"
+            /></a>
+          </div>
+        </div>
+        <div
+          class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+        >
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item">
+              <a class="nav-link" href="/viewer"><span class="menu-title">Image Viewer</a>
+            </li></span>
+            <li class="nav-item">
+              <a class="nav-link" href="/measure"><span class="menu-title">Measurement</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/report"><span class="menu-title">Report</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/setting"><span class="menu-title">Setting</span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row date">
+              <label>Model</label>
+              <select id="selectImg">
+                <option value="mask">Mask RCNN</option>
+                <option value="faster">Faster RCNN</option>
+                <option value="yolo">YOLO</option>
+              </select>
+
+              <div class="btn-group">
+                <button id="btnStart" type="button" class="btn">Start</button>
+                <button id="btnStop" type="button" class="btn">Stop</button>
+                <button id="btnCancel" type="button" class="btn">Cancel</button>
+              </div>
+            </div>
+            <div class="row justify-content-evenly h-100">
+              <div class="w-40 slider-left stretch-card flex-column">
+                <div class="row">
+                  <div id="detectedImg" class="swiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide mainImg">
+                        <img src="../data/images/img/IMG_6207.png" />
+                      </div>
+                      <div class="swiper-slide mainImg">
+                        <img src="../data/images/img/IMG_6210.png" />
+                      </div>
+                      <div class="swiper-slide mainImg">
+                        <img src="../data/images/img/IMG_6213.png" />
+                      </div>
+                      <div class="swiper-slide mainImg">
+                        <img src="../data/images/img/IMG_6314.png" />
+                      </div>
+                      <div class="swiper-slide mainImg">
+                        <img src="../data/images/img/IMG_6338.png" />
+                      </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev btnSwiper" style="color: #4e944f;">
+                      <i class="fa-solid fa-circle-chevron-left fa-xl"></i>
+                    </div>
+                    <div class="swiper-button-next btnSwiper" style="color: #4e944f;">
+                      <i class="fa-solid fa-circle-chevron-right fa-xl"></i>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="table-responsive card main-img">
+                  <table class="table table-hover">
+                    <tbody>
+                      <tr>
+                        <td class="imgMeta">IMG ID</td>
+                        <td id="imgID">001</td>
+                      </tr>
+                      <tr>
+                        <td class="imgMeta">길이</td>
+                        <td id="length">10.1 cm</td>
+                      </tr>
+                      <tr>
+                        <td class="imgMeta">두께</td>
+                        <td id="width">31 mm</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="w-40 grid-margin stretch-card flex-column">
+                <div class="row" style="height: 80vh;">
+                  <div id="image-slide" class="swiper" style="margin-top: 0">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide twice">
+                        <img src="../data/images/edge/6207_01.png" />
+                      </div>
+                      <div class="swiper-slide twice">
+                        <img src="../data/images/edge/6207_02.png" />
+                      </div>
+                      <div class="swiper-slide twice">
+                        <img src="../data/images/edge/6207_03.png" />
+                      </div>
+                    </div>
+                    <div class="swiper-pagination" id="paginationSub"></div>
+                    <div class="swiper-button-prev" id="prevSub" style="color: #4e944f;">
+                      <i class="fa-solid fa-circle-chevron-left fa-xl"></i>
+                    </div>
+                    <div class="swiper-button-next" id="nextSub" style="color: #4e944f;">
+                      <i class="fa-solid fa-circle-chevron-right fa-xl"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <!-- base:js -->
+    <script
+      type="text/javascript"
+      src="/node_modules/jquery/dist/jquery.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"
+    ></script>
+    <script src="/data/test_viewer.js"></script>
+    <script src="/script/measurement_sc.js"></script>
+    <!-- End custom js for this page-->
+  </body>
+</html>

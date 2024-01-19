@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Viewer</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="/resources/css/style.css" />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/resources/css/slider.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/resources/images/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar w-100 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex justify-content-center">
+          <div
+            class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100"
+          >
+            <a class="navbar-brand brand-logo" href="/viewer"
+              ><img src="/resources/images/logo.png" alt="logo"
+            /></a>
+          </div>
+        </div>
+        <div
+          class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+        >
+          <span class="r-sentence"
+            ><span class="point">Q</span>uantitative
+            <span class="point">A</span>nalysis
+            <span class="point">S</span>ystem of
+            <span class="point">I</span>mages</span
+          >
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial [side bar] -->
+        <nav class="sidebar">
+          <ul class="nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/main">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <span class="menu-title">Image Modeling</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/report">
+                <i class="fa-solid fa-table"></i>
+                <span class="menu-title">Report</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/setting">
+                <i class="fa-solid fa-gear"></i>
+                <span class="menu-title">Train Settings</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial [main] -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row h-100">
+              <div class="column w-60 grid-margin stretch-card flex-column">
+                <div class="x-100 inner-card text-card">
+                  <div class="row one-line w-100 align-items-center">
+                    <label>Image Upload</label>
+                    <div class="filebox">
+                      <input
+                        type="text"
+                        class="upload-name"
+                        value=""
+                        disabled
+                      />
+                      <label for="file">Upload</label>
+                      <input type="file" multiple id="file" />
+                    </div>
+                  </div>
+                  <div class="row one-line w-100 align-items-center">
+                    <label>Objectives</label>
+                    <select>
+                      <option>Image Classification</option>
+                      <option>Object Detection</option>
+                      <option>Image Segmentation</option>
+                    </select>
+                  </div>
+                  <div class="row one-line w-100 align-items-center">
+                    <label>Model</label>
+                    <div>
+                      <select>
+                        <option>YOLO v3.0</option>
+                        <option>YOLO v5.0</option>
+                        <option>YOLO v7.0</option>
+                      </select>
+                      <button
+                        id="btnModelStart"
+                        type="button"
+                        class="btn btn-mStart"
+                      >
+                        Start
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="x-100 inner-card text-card">
+                  <div class="row one-line w-100 align-items-center">
+                    <label>Objects Detected</label>
+                    <label>20 (ea.)</label>
+                  </div>
+                  <div class="row one-line w-100 align-items-center">
+                    <label>Accuracy</label>
+                    <label>85 (%)</label>
+                  </div>
+                </div>
+                <div class="x-100 h-100 inner-card">
+                  <div class="row w-100 align-items-center">
+                    <i class="fa-solid fa-play"></i>
+                    <label>Results</label>
+                  </div>
+                  <div class="table">
+                    <table id="res_Table" style="font-size: 0.8rem">
+                      <thead>
+                        <tr>
+                          <th>No.</th>
+                          <th>Length</th>
+                          <th>Height</th>
+                          <th>Thickness</th>
+                          <th>Weight</th>
+                          <th>Weight(Act.)</th>
+                          <th>MAPE</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="w-40 grid-margin stretch-card flex-column">
+                <div class="x-100 h-50 inner-card image-card text-align-center">
+                  <div class="one-line w-100 align-items-center">
+                    <span class="title">Raw Image</span>
+                  </div>
+                  <div class="row">
+                    <div id="rawImg" class="swiper">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide mainImg">
+                          <img
+                            src="../data/bacteria/vorti (209)_resize_720_960.png"
+                          />
+                        </div>
+                        <div class="swiper-slide mainImg">
+                          <img
+                            src="../data/bacteria/vorti (21)_resize_720_960.png"
+                          />
+                        </div>
+                        <div class="swiper-slide mainImg">
+                          <img
+                            src="../data/bacteria/vorti (210)_resize_720_960.png"
+                          />
+                        </div>
+                        <div class="swiper-slide mainImg">
+                          <img
+                            src="../data/bacteria/vorti (211)_resize_720_960.png"
+                          />
+                        </div>
+                        <div class="swiper-slide mainImg">
+                          <img
+                            src="../data/bacteria/vorti (22)_resize_720_960.png"
+                          />
+                        </div>
+                      </div>
+                      <div class="swiper-pagination"></div>
+                      <div class="swiper-button-prev" style="color: #4e944f">
+                        <i class="fa-solid fa-circle-chevron-left fa-xl"></i>
+                      </div>
+                      <div class="swiper-button-next" style="color: #4e944f">
+                        <i class="fa-solid fa-circle-chevron-right fa-xl"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="x-100 h-50 inner-card image-card text-align-center">
+                  <div class="one-line w-100 align-items-center">
+                    <span class="title">Detected Image</span>
+                  </div>
+                  <div class="row">
+                    <div id="detectedImg" class="swiper"></div>
+                  </div>
+                  <!-- <img src="../resources/images/sample_detected.png" /> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <!-- base:js -->
+    <script
+      type="text/javascript"
+      src="/node_modules/jquery/dist/jquery.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"
+    ></script>
+    <script src="/script/main_sc_pre.js"></script>
+    <!-- End custom js for this page-->
+  </body>
+</html>

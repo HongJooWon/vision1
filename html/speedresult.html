@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Vision</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="/resources/css/style.css" />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/resources/css/slider.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/resources/images/favicon.png" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar w-100 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex justify-content-center">
+          <div
+            class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100"
+          >
+            <a class="navbar-brand brand-logo" href="/main"
+              ><img src="/resources/images/logo.gif" alt="logo"
+            /></a>
+          </div>
+        </div>
+        <div
+          class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+        >
+          <img src="/resources/images/user.png" class="nav-user" />
+          <label class="user_name" id="userName"></label>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial [side bar] -->
+        <nav class="sidebar">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/main">
+                <i class="fa-regular fa-images"></i>
+                <span class="menu-title">Image Viewer</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/measurement">
+                <i class="fa-solid fa-table"></i>
+                <span class="menu-title">Measurement</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/report">
+                <i class="fa-solid fa-table"></i>
+                <span class="menu-title">Floc Report</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/speed">
+                <i class="fa-regular fa-images"></i>
+                <span class="menu-title">Speed Analysis</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/speed/result">
+                <i class="fa-solid fa-gear"></i>
+                <span class="menu-title">Speed Analysis Result</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/speed/report">
+                <i class="fa-solid fa-gear"></i>
+                <span class="menu-title">Speed Analysis Report</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/setting">
+                <i class="fa-solid fa-gear"></i>
+                <span class="menu-title">Train Settings</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial [main] -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row h-20">
+              <div class="column w-100 grid-margin stretch-card flex-column">
+                <div class="x-100 inner-card text-card row">
+                  <label>Batch ID</label>
+                  <input
+                    type="text"
+                    id="searchWord"
+                    placeholder="검색어를 입력하세요"
+                  />
+                  <a class="searchDelete" style="display: none"
+                    ><i class="fa-solid fa-xmark"></i
+                  ></a>
+                </div>
+                <div class="x-100 viewer-listArea">
+                  <ul id="viewer_datalist"></ul>
+                </div>
+                <div class="inner-card row text-card">
+                  <label>침강 속도</label>
+                  <label id="speed_txt"></label>
+                </div>
+              </div>
+            </div>
+            <div class="row h-80">
+              <div
+                class="grid-margin stretch-card flex-column"
+                style="width: 100%"
+              >
+                <div
+                  class="row x-100 h-100 inner-card image-card text-align-center"
+                >
+                  <div class="swiper" id="imageArea">
+                    <div class="swiper-wrapper"></div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev" style="color: #4e944f">
+                      <i class="fa-solid fa-circle-chevron-left fa-xl"></i>
+                    </div>
+                    <div class="swiper-button-next" style="color: #4e944f">
+                      <i class="fa-solid fa-circle-chevron-right fa-xl"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <!-- base:js -->
+    <script
+      type="text/javascript"
+      src="/node_modules/jquery/dist/jquery.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"
+    ></script>
+    <script src="/script/speedresult_sc.js"></script>
+    <!-- End custom js for this page-->
+  </body>
+</html>

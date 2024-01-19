@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Dataset</title>
+    <!-- base:css -->
+    <link rel="stylesheet" href="/styles/vendors/typicons/typicons.css" />
+    <link rel="stylesheet" href="/styles/vendors/css/vendor.bundle.base.css" />
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/styles/css/vertical-layout-light/style.css" />
+    <!-- endinject -->
+    <link rel="shortcut icon" href="/styles/images/favicon.png" />
+    <script src="https://use.fontawesome.com/releases/v6.4.0/js/all.js"></script>
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_navbar.html -->
+      <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-brand-wrapper d-flex justify-content-center">
+          <div
+            class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100"
+          >
+            <a class="navbar-brand brand-logo" href="/viewer"
+              ><img src="/styles/images/logo.png" alt="logo"
+            /></a>
+            <a class="navbar-brand brand-logo-mini" href="/viewer"
+              ><img src="/styles/images/logo-mini.svg" alt="logo"
+            /></a>
+            <button
+              class="navbar-toggler navbar-toggler align-self-center"
+              type="button"
+              data-toggle="minimize"
+            >
+              <span class="typcn typcn-th-menu"></span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="navbar-menu-wrapper d-flex align-items-center justify-content-end"
+        >
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item nav-profile dropdown">
+              <a
+                class="nav-link"
+                href="#"
+                data-toggle="dropdown"
+                id="profileDropdown"
+              >
+                <span class="nav-profile-name" id="userName"></span>
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-right navbar-dropdown"
+                aria-labelledby="profileDropdown"
+              >
+                <a class="dropdown-item" href="/setting">
+                  <i class="typcn typcn-cog-outline text-primary"></i>
+                  Settings
+                </a>
+                <a class="dropdown-item" href="/login">
+                  <i class="typcn typcn-eject text-primary"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+          <button
+            class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
+            type="button"
+            data-toggle="offcanvas"
+          >
+            <span class="typcn typcn-th-menu"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fa-regular fa-images menu-icon"></i>
+                <span class="menu-title">Image Viewer</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/datasets/upload">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <span class="menu-title">Modelling</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="activeIcon();">
+                <i class="fa-solid fa-ruler-combined menu-icon"></i>
+                <span class="menu-title">Measurement</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="activeIcon();">
+                <i class="fa-solid fa-table menu-icon"></i>
+                <span class="menu-title">Report</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" onclick="activeIcon();">
+                <i class="fa-solid fa-gear menu-icon"></i>
+                <span class="menu-title">Settings</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+              <div class="col-xl-12 grid-margin stretch-card flex-column">
+                <h5 class="mb-2 text-titlecase mb-4">Datasets</h5>
+                <div class="row h-100">
+                  <div
+                    class="col-md-3 stretch-card grid-margin grid-margin-md-0"
+                  >
+                    <div class="card" id="projectList">
+                      <div
+                        class="project"
+                        id="admin0123"
+                        onclick="enterData();"
+                      >
+                        <div class="row">
+                          <h4>Concrete</h4>
+                          <i
+                            class="fa-solid fa-circle-minus iproject"
+                            onclick="deleteData();"
+                          ></i>
+                        </div>
+                        <p>2023.04.14 09:17</p>
+                        <p>admin</p>
+                        <p>3.8 M</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="col-md-3 stretch-card grid-margin grid-margin-md-0"
+                  >
+                    <div class="card" id="projectList">
+                      <div
+                        class="project"
+                        id="admin0111"
+                        onclick="enterData();"
+                      >
+                        <div class="row">
+                          <h4>Concrete1</h4>
+                          <i
+                            class="fa-solid fa-circle-minus iproject"
+                            onclick="deleteData();"
+                          ></i>
+                        </div>
+                        <p>2023.04.14 09:17</p>
+                        <p>admin</p>
+                        <p>3.8 M</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- content-wrapper ends -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <!-- base:js -->
+    <script
+      type="text/javascript"
+      src="/node_modules/jquery/dist/jquery.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+    <script src="/styles/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page-->
+    <script src="/styles/vendors/chart.js/Chart.min.js"></script>
+    <!-- End plugin js for this page-->
+    <!-- inject:js -->
+    <script src="/styles/js/off-canvas.js"></script>
+    <script src="/styles/js/hoverable-collapse.js"></script>
+    <script src="/styles/js/template.js"></script>
+    <script src="/styles/js/settings.js"></script>
+    <script src="/styles/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="/script/login-sc.js"></script>
+    <!-- End custom js for this page-->
+  </body>
+</html>
