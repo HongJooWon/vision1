@@ -14,7 +14,7 @@ router.post('/Signin', (req, res) => {
   if (userID != 'admin') {
     console.log(chalk.red(`[LOGIN] ${userID} : Discorrect ID`));
     res.status(200).send({ Status: '001', Msg: 'ID 불일치' });
-  } else if (password != 'attic1') {
+  } else if (password != 'Attic2018!@') {
     console.log(chalk.red(`[LOGIN] ${userID} : Discorrect Password`));
     res.status(200).send({ Status: '002', Msg: '패스워드 불일치' });
   } else {
