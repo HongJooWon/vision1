@@ -19,8 +19,8 @@ const measureRouter = require('./routers/measurement');
 const reportRouter = require('./routers/report');
 const speedRouter = require('./routers/speed');
 const settingRouter = require('./routers/setting');
-server.listen(process.env.PORT, () =>
-  console.log(`Listening Port ${process.env.PORT}`)
+server.listen(process.env.PORT || 5002, () =>
+  console.log(`Listening Port ${process.env.PORT || 5002}`)
 );
 
 app.get('/', (req, res) => {
