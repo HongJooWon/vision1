@@ -34,9 +34,3 @@ app.use('/measurement', measureRouter);
 app.use('/report', reportRouter);
 app.use('/setting', settingRouter);
 app.use('/speed', speedRouter);
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
-
-module.exports = app;
